@@ -61,7 +61,7 @@ private DSL dsl;
 	@Test
 	public void deveInteragirComCheckbox() {
 		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
-		Assert.assertTrue(driver.findElement(By.id("elementosForm:comidaFavorita:2")).isSelected());
+		Assert.assertTrue(dsl.isCheckMarcado("elementosForm:comidaFavorita:2"));
 	}
 
 
@@ -96,8 +96,7 @@ private DSL dsl;
 	@Test
 	public void deveInteragirComBotoes() {
 		dsl.clicarBotao("buttonSimple");
-		WebElement botao = driver.findElement(By.id("buttonSimple"));
-		Assert.assertEquals("Obrigado!", botao.getAttribute("value"));
+		Assert.assertEquals("Obrigado!", dsl.obterValueElemento("buttonSimple"));
 	}
 	
 	@Test
@@ -113,4 +112,14 @@ private DSL dsl;
 		Assert.assertEquals("Cuidado onde clica, muitas armadilhas...", dsl.obterTexto(By.className("facilAchar")));
 	}
 	
+	@Test
+	public void testJavascript(){
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("alert('Testando js via selenium')");
+		js.executeScript("document.getElementById('elementosForm:nome').value = 'Escrito via js'");
+		js.executeScript("document.getElementById('elementosForm:sobrenome').type = 'radio'");
+		
+		WebElement element = driver.findElement(By.id("elementosForm:nome"));
+		js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
+	}
 }
