@@ -1,0 +1,12 @@
+1. //input[@id='elementosForm:nome']
+2. //input[@name='elementosForm:sexo' and @value='F']
+3. //tbody/tr//td[3]/label
+   .//*[@id='elementosForm:comidaFavorita:2']/following-sibling::label
+4. //*[@id='tabelaSemJSF']//tr[3]/td[1]
+   //*[@id='tabelaSemJSF']//td[.='Usuario B']
+5. //*[@id='elementosForm:tableUsuarios']//tr[2]/td[3]/*[@name='elementosForm:tableUsuarios:2:j_idt440']
+   //*[@id='elementosForm:tableUsuarios']//td[.='Maria']/..//input[@type='button']
+6. //*[@id='elementosForm:tableUsuarios']//tr[4]/td[5]//*[@type='radio']
+   //*[@id='elementosForm:tableUsuarios']//td[1][.='Doutorado']/../td[2][.='Doutorado']/..//input[@type='radio']
+7. //*[@id='elementosForm:tableUsuarios']//tr[5]/td[6]//*
+   (//*[@id='elementosForm:tableUsuarios']//td[2][.='Superior'])[2]/..//input[@type='text']
