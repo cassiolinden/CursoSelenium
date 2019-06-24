@@ -175,4 +175,38 @@ public class DSL {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript(cmd, param);
 	}
+	
+	/********* Tabela ************/
+	
+	public void clicarBotaoTabela(String colunaBusca, String valor, String colunaBotao) {
+		//procurar coluna do registro
+		WebElement tabela = driver.findElement(By.xpath("//*[@id=\"elementosForm:tableUsuarios\"]")); 
+		int idColuna = obterIndiceColuna(colunaBusca, tabela);
+		
+		//encontrar linha do registro
+		List<WebElement> linhas = tabela.findElements(By.xpath(".//tr/td["+idColuna+"]"));
+		int idLinha = -1;
+		for(int i = 0; i < linhas.size(); i++){
+			if(linhas.get(i).getText().equals(valor)) {
+				idLinha = i+1;
+				break;
+			}
+		}
+		
+		//procurar coluna do botao
+		//clicar no botao da celula encontrada
+	}
+
+	protected int obterIndiceColuna(String coluna, WebElement tabela) {
+		List<WebElement> colunas = tabela.findElements(By.xpath(".//th"));
+		int idColuna = -1;
+		for(int i = 0; i < colunas.size(); i++){
+			if(colunas.get(i).getText().equals(coluna)) {
+				idColuna = i+1;
+				break;
+			}
+		}
+		return idColuna;
+	}
+	
 }
