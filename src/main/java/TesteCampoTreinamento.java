@@ -29,7 +29,7 @@ private DSL dsl;
 	
 	@After
 	public void finaliza() {
-//		driver.quit();
+		driver.quit();
 	}
 	
 	@Test
