@@ -1,13 +1,15 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.rs.cassiolinden.core.DriverFactory;
+import br.rs.cassiolinden.core.BaseTest;
+import br.rs.cassiolinden.core.DSL;
+import br.rs.cassiolinden.page.CampoTreinamentoPage;
 
-public class DesafioRegraNegocio {
+public class DesafioRegraNegocio extends BaseTest{
 	/* Testar:
 	 * - Nome
 	 * - Sobrenome
@@ -23,11 +25,6 @@ public class DesafioRegraNegocio {
 	public void inicializa() {
 		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
 	}
-	
-	@After
-	public void finaliza() {
-		DriverFactory.killDriver();
-	}	
 	
 	@Test
 	public void testarRegraNome() {

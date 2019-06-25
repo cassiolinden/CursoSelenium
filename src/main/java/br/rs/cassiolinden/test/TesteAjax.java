@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
 import org.junit.After;
@@ -8,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 
@@ -17,7 +19,6 @@ public class TesteAjax {
 	@Before
 	public void inicializa() {
 		getDriver().get("https://www.primefaces.org/showcase/ui/ajax/basic.xhtml");
-		dsl = new DSL();
 	}
 		
 	@After

@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
 import org.junit.After;
@@ -7,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 
@@ -17,7 +19,6 @@ private DSL dsl;
 	@Before
 	public void inicializa() {
 		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL();
 	}
 	
 	@After

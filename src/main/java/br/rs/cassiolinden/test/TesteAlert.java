@@ -1,8 +1,10 @@
+package br.rs.cassiolinden.test;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
@@ -15,7 +17,6 @@ private DSL dsl;
 	@Before
 	public void inicializa() {
 		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL();
 	}
 	
 	@After

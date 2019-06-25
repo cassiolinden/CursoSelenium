@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import org.junit.Assert;
 import org.junit.Test;
 //import org.openqa.selenium.Dimension;

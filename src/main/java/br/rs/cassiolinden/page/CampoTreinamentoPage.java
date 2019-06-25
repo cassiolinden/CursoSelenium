@@ -1,12 +1,9 @@
+package br.rs.cassiolinden.page;
 import org.openqa.selenium.By;
 
-public class CampoTreinamentoPage {
-	
-	private DSL dsl;
-	
-	public CampoTreinamentoPage() {
-		dsl = new DSL();
-	}
+import br.rs.cassiolinden.core.BasePage;
+
+public class CampoTreinamentoPage extends BasePage{
 	
 	public void setNome(String nome) {
 		dsl.escrever("elementosForm:nome", nome);

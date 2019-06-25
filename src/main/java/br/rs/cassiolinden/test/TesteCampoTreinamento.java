@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 import static org.junit.Assert.assertEquals;
 
@@ -12,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 public class TesteCampoTreinamento {
@@ -21,7 +23,6 @@ private DSL dsl;
 	@Before
 	public void inicializa() {
 		DriverFactory.getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL();
 	}
 	
 	@After

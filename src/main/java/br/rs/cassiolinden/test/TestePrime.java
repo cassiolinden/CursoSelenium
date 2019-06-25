@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
 import org.junit.After;
@@ -6,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 
@@ -15,7 +17,6 @@ public class TestePrime {
 		@Before
 		public void inicializa() {
 			getDriver().get("https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml");
-			dsl = new DSL();
 		}
 		
 		@After

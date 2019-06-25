@@ -1,15 +1,16 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.rs.cassiolinden.core.DriverFactory;
+import br.rs.cassiolinden.core.BaseTest;
+import br.rs.cassiolinden.page.CampoTreinamentoPage;
 
 
 
-public class Desafio1 {
+public class Desafio1 extends BaseTest{
 
 private CampoTreinamentoPage page;
 	
@@ -17,11 +18,6 @@ private CampoTreinamentoPage page;
 	public void inicializa() {
 		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
 		page = new CampoTreinamentoPage();
-	}
-	
-	@After
-	public void finaliza() {
-		DriverFactory.killDriver();
 	}
 	
 	@Test

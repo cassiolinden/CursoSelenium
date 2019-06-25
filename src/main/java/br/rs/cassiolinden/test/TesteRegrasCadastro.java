@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
 import java.util.Arrays;
@@ -13,7 +14,9 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
+import br.rs.cassiolinden.page.CampoTreinamentoPage;
  
 
 @RunWith(Parameterized.class)
@@ -37,7 +40,6 @@ public class TesteRegrasCadastro {
 	@Before
 	public void inicializa() {
 		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL();
 		page = new CampoTreinamentoPage();
 	}
 	

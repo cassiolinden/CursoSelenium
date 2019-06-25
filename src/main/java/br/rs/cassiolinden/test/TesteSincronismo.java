@@ -1,3 +1,4 @@
+package br.rs.cassiolinden.test;
 import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.core.DriverFactory;
 
 public class TesteSincronismo {
@@ -19,7 +21,6 @@ public class TesteSincronismo {
 		@Before
 		public void inicializa() {
 			getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-			dsl = new DSL();
 		}
 		
 		@After
