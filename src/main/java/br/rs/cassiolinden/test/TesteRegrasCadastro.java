@@ -13,12 +13,13 @@ import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
 import br.rs.cassiolinden.core.BasePage;
+import br.rs.cassiolinden.core.BaseTest;
 import br.rs.cassiolinden.core.DSL;
 import br.rs.cassiolinden.page.CampoTreinamentoPage;
  
 
 @RunWith(Parameterized.class)
-public class TesteRegrasCadastro extends BasePage{
+public class TesteRegrasCadastro extends BaseTest{
 	private DSL dsl;
 	private CampoTreinamentoPage page;
 	
