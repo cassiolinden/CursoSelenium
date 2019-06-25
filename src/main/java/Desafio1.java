@@ -40,13 +40,13 @@ private CampoTreinamentoPage page;
 		page.cadastrar();
 		
 		//verificação dos dados cadastrados
-		Assert.assertTrue(page.obterResultadoCadastro().startsWith("Cadastrado!"));
-		Assert.assertTrue(page.obterNomeCadastro().endsWith("Cássio"));
-		Assert.assertEquals("Sobrenome: Linden Albert", page.obterSobrenomeCadastro());
-		Assert.assertEquals("Sexo: Masculino", page.obterSexoCadastro());
-		Assert.assertEquals("Comida: Carne Frango Pizza", page.obterComidaCadastro());
-		Assert.assertEquals("Escolaridade: superior", page.obterEscolaridadeCadastro());
-		Assert.assertEquals("Esportes: Futebol Corrida", page.obterEsporteCadastro());
-		Assert.assertEquals("Sugestoes: lalalalalala", page.obterSugestoesCadastro());
+		Assert.assertEquals("Cadastrado!", page.obterResultadoCadastro());
+		Assert.assertEquals("Cássio", page.obterNomeCadastro());
+		Assert.assertEquals("Linden Albert", page.obterSobrenomeCadastro());
+		Assert.assertEquals("Masculino", page.obterSexoCadastro());
+		Assert.assertEquals("Carne Frango Pizza", page.obterComidaCadastro());
+		Assert.assertEquals("superior", page.obterEscolaridadeCadastro());
+		Assert.assertEquals("Futebol Corrida", page.obterEsporteCadastro());
+		Assert.assertEquals("lalalalalala", page.obterSugestoesCadastro());
 	}
 }
