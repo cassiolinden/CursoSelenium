@@ -106,6 +106,10 @@ public class DSL {
 	
 	/********* Botao ************/
 	
+	public void clicarBotao(By by) {
+		driver.findElement(by).click();
+	}
+	
 	public void clicarBotao(String id) {
 		driver.findElement(By.id(id)).click();
 	}
