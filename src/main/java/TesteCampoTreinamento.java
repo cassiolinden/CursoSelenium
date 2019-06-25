@@ -29,7 +29,7 @@ private DSL dsl;
 	
 	@After
 	public void finaliza() {
-		driver.quit();
+//		driver.quit();
 	}
 	
 	@Test
@@ -125,6 +125,6 @@ private DSL dsl;
 	
 	@Test
 	public void deveClicarBotaoTabela() {
-		
+		dsl.clicarBotaoTabela("Escolaridade", "Mestrado", "Radio", "elementosForm:tableUsuarios");
 	}
 }
