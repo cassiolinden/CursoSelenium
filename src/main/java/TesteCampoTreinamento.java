@@ -1,3 +1,4 @@
+import static br.rs.cassiolinden.core.DriverFactory.getDriver;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
@@ -9,27 +10,23 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import br.rs.cassiolinden.core.DriverFactory;
 
 public class TesteCampoTreinamento {
-	
-private WebDriver driver;
+
 private DSL dsl;
 	
 	@Before
 	public void inicializa() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\cassio\\Documents\\webdrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL(driver);
+		DriverFactory.getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
+		dsl = new DSL();
 	}
 	
 	@After
 	public void finaliza() {
-		driver.quit();
+		DriverFactory.killDriver();
 	}
 	
 	@Test
@@ -60,7 +57,7 @@ private DSL dsl;
 	
 	@Test
 	public void deveInteragirComCheckbox() {
-		driver.findElement(By.id("elementosForm:comidaFavorita:2")).click();
+		getDriver().findElement(By.id("elementosForm:comidaFavorita:2")).click();
 		Assert.assertTrue(dsl.isCheckMarcado("elementosForm:comidaFavorita:2"));
 	}
 
@@ -107,19 +104,19 @@ private DSL dsl;
 	
 	@Test
 	public void deveBuscarTextosNaPagina() {
-//		Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Campo de Treinamento"));
+//		Assert.assertTrue(getDriver().findElement(By.tagName("body")).getText().contains("Campo de Treinamento"));
 		Assert.assertEquals("Campo de Treinamento", dsl.obterTexto(By.tagName("h3")));
 		Assert.assertEquals("Cuidado onde clica, muitas armadilhas...", dsl.obterTexto(By.className("facilAchar")));
 	}
 	
 	@Test
 	public void testJavascript(){
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		js.executeScript("alert('Testando js via selenium')");
 		js.executeScript("document.getElementById('elementosForm:nome').value = 'Escrito via js'");
 		js.executeScript("document.getElementById('elementosForm:sobrenome').type = 'radio'");
 		
-		WebElement element = driver.findElement(By.id("elementosForm:nome"));
+		WebElement element = getDriver().findElement(By.id("elementosForm:nome"));
 		js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
 	}
 	

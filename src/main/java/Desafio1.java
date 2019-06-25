@@ -1,28 +1,27 @@
+import static br.rs.cassiolinden.core.DriverFactory.getDriver;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import br.rs.cassiolinden.core.DriverFactory;
+
 
 
 public class Desafio1 {
 
-private WebDriver driver;
 private CampoTreinamentoPage page;
 	
 	@Before
 	public void inicializa() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\cassio\\Documents\\webdrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		page = new CampoTreinamentoPage(driver);
+		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
+		page = new CampoTreinamentoPage();
 	}
 	
 	@After
 	public void finaliza() {
-		driver.quit();
+		DriverFactory.killDriver();
 	}
 	
 	@Test

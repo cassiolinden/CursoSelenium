@@ -1,13 +1,11 @@
+import static br.rs.cassiolinden.core.DriverFactory.getDriver;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
+import br.rs.cassiolinden.core.DriverFactory;
 
 public class DesafioRegraNegocio {
 	/* Testar:
@@ -18,23 +16,17 @@ public class DesafioRegraNegocio {
 	 * - Esportes: Esporte e "O que eh esporte?"
 	 * */
 	
-	private WebDriver driver;
 	private DSL dsl;
 	private CampoTreinamentoPage page;
 	
 	@Before
 	public void inicializa() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\cassio\\Documents\\webdrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		driver.get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
-		dsl = new DSL(driver);
-		page = new CampoTreinamentoPage(driver);
+		getDriver().get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
 	}
 	
 	@After
 	public void finaliza() {
-		driver.quit();
+		DriverFactory.killDriver();
 	}	
 	
 	@Test
