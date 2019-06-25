@@ -16,7 +16,6 @@ public class TestePrime {
 			System.setProperty("webdriver.gecko.driver", "C:\\Users\\cassio\\Documents\\webdrivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
-//			driver.get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml");
 			driver.get("https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml");
 			dsl = new DSL(driver);
 		}
@@ -28,6 +27,7 @@ public class TestePrime {
 	
 	@Test
 	public void deveInteragirComRadioPrime() {
+		driver.get("https://www.primefaces.org/showcase/ui/input/oneRadio.xhtml");
 		dsl.clicarRadio(By.xpath("//input[@id='j_idt701:console:0']/../..//span")); //id dinâmico
 		Assert.assertTrue(dsl.isRadioMarcado("j_idt701:console:0"));
 		
@@ -37,13 +37,10 @@ public class TestePrime {
 	
 	@Test
 	public void deveInteragirComComboPrime() {
-//		clicar no combo
-		dsl.clicarBotao(By.xpath("//label[@id='j_idt701:console_label']/..//span"));
-//		selecionar o valor
-//		dsl.clicarBotao(By.xpath("//label[@id='j_idt701:console_label']/..//select/option[@value='PS4']")); //localizando pelo valor, mas não funcionou
-		dsl.clicarBotao(By.xpath("//*[@id='j_idt701:console_2']")); //id do elemento
-//		conferir se coincide com o esperado
-		Assert.assertEquals("PS4", dsl.obterTexto(By.xpath("//label[@id='j_idt701:console_label']")));
+		driver.get("https://www.primefaces.org/showcase/ui/input/oneMenu.xhtml");
+		dsl.selecionarComboPrime("j_idt701:console", "Xbox One");
+//		dsl.clicarBotao(By.xpath("//*[@id='j_idt701:console_2']")); //id do elemento
+		Assert.assertEquals("Xbox One", dsl.obterTexto("j_idt701:console_label"));
 		
 
 	}

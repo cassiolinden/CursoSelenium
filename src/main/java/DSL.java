@@ -104,6 +104,11 @@ public class DSL {
 		return false;
 	}
 	
+	public void selecionarComboPrime(String radical, String valor) {
+		clicarBotao(By.xpath("//*[@id='"+radical+"_input']/../..//span"));
+		clicarBotao(By.xpath("//*[@id='"+radical+"_items']//li[.='"+valor+"']"));
+	}
+	
 	/********* Botao ************/
 	
 	public void clicarBotao(By by) {
