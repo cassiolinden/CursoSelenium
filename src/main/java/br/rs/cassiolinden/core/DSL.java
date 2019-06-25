@@ -150,7 +150,6 @@ public class DSL {
 		String valor = alert.getText();
 		alert.accept();
 		return valor;
-		
 	}
 	
 	public String alertaObterTextoENega(){
