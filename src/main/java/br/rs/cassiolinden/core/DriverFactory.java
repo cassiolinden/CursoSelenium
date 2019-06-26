@@ -1,6 +1,8 @@
 package br.rs.cassiolinden.core;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
@@ -9,17 +11,22 @@ public class DriverFactory {
 	
 	private DriverFactory() {}
 	
-	public static WebDriver getDriver() {
-		if(driver==null) {
-			System.setProperty("webdriver.gecko.driver", "C:\\Users\\cassio\\Documents\\webdrivers\\geckodriver.exe");
-			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
+	public static WebDriver getDriver(){
+		if(driver == null) {
+			switch (Propriedades.browser) {
+				case FIREFOX:
+					driver = new FirefoxDriver(); break;
+				case CHROME: 
+					driver = new ChromeDriver(); 
+					ChromeOptions co = new ChromeOptions();
+					co.addArguments("--start-maximized");
+			}
 		}
 		return driver;
 	}
-	
-	public static void killDriver() {
-		if(driver!=null) {
+
+	public static void killDriver(){
+		if(driver != null) {
 			driver.quit();
 			driver = null;
 		}
